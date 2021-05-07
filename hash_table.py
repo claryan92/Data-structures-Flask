@@ -16,12 +16,18 @@ class HashTable:
         self.hash_table = [None] * table_size
 
     def custom_hash(self, key):
+        """
+        Create a custom hash value for a key
+        """
         hash_value = 0
         for i in key:
             hash_value += ord(i)
             hash_value = (hash_value * ord(i)) % self.table_size
 
     def add_key_value(self, key, value):
+        """
+        Add value to hashed key
+        """
         hashed_key = self.custom_hash(key)
         if self.hash_table[hashed_key] is None:
             self.hash_table[hashed_key] = Node(Data(key, value), None)
@@ -33,6 +39,9 @@ class HashTable:
             node.next_node = Node(Data(key, value), None)
 
     def get_value(self, key):
+        """
+        Retrieve value from the hashed key
+        """
         hashed_key = self.custom_hash(key)
         if self.hash_table[hashed_key] is not None:
             node = self.hash_table[hashed_key]
