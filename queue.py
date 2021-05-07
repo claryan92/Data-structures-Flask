@@ -10,6 +10,9 @@ class Queue:
         self.tail = None
 
     def enqueue(self, data):
+        """
+        Add element to tail end of queue
+        """
         if self.tail is none and self.head is None:
             self.tail = self.head = Node(data, None)
             return
@@ -18,6 +21,9 @@ class Queue:
         self.tail = self.tail.next_node
 
     def dequeue(self, data):
+        """
+        Pop element off head of the queue
+        """
         if self.head is None:
             return None
         removed = self.head

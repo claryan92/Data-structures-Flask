@@ -10,6 +10,9 @@ class BinarySearchTree:
         self.root = None
     
     def _insert_recursive(self, data, node):
+        """
+        Insert data into correct location in BinarySearchTree
+        """
         if data["id"] < node.data["id"]:
             if node.left is None:
                 node.left = Node(data)
@@ -24,12 +27,18 @@ class BinarySearchTree:
             return
 
     def insert(self, data):
+        """
+        Call recursive function to insert data into BinarySearchTree
+        """
         if self.root is None:
             self.root = Node(data)
         else:
             self._insert_recursive(data, self.root)
 
     def _search_recursive(self, blog_post_id, node):
+        """
+        Recursively search for data in BinarySearchTree
+        """
         if blog_post_id == node.data["id"]:
             return node.data
 
@@ -47,6 +56,9 @@ class BinarySearchTree:
         
 
     def search(self, blog_post_id):
+        """
+        Call recursive function to search for data in BinarySearchTree
+        """
         blog_post_id = int(blog_post_id)
         if self.root is None:
             return False
